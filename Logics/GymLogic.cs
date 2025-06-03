@@ -10,8 +10,9 @@ namespace Logics
 
         public GymLogic()
         {
-           // dataService = new TextFileDataService();
-            dataService = new JsonFileDataService();
+            dataService = new SqlGymDataService();
+            // dataService = new TextFileDataService();
+            //dataService = new JsonFileDataService();
         }
 
         public void AddMember(Member member)
