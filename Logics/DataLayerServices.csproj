@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GymCommon\GymCommon.csproj" />
+  </ItemGroup>
+
 </Project>

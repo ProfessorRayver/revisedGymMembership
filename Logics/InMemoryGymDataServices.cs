@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using GymCommon;
 
 namespace Logics
 {
@@ -8,16 +9,6 @@ namespace Logics
     {
         private readonly List<Member> members = new List<Member>();
 
-        public InMemoryGymDataServices()
-        {
-            members.Add(new Member
-            {
-                Name = "Rayver Reyes",
-                MembershipType = "Special",
-                Month = DateTime.Now.ToString("MMMM"),
-                PaymentStatus = "Paid"
-            });
-        }
         public List<Member> GetMembers()
         {
             return new List<Member>(members);

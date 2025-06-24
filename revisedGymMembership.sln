@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayerServices", "Logics
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{FE952DE7-344E-4051-9DDD-593B6C8030A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymCommon", "GymCommon\GymCommon.csproj", "{6C887994-6CDD-4B6F-81A0-78DE869E7EFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymBL", "GymBL\GymBL.csproj", "{4FCE0660-4337-474D-A7C4-DB6A8077FD02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{FE952DE7-344E-4051-9DDD-593B6C8030A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE952DE7-344E-4051-9DDD-593B6C8030A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE952DE7-344E-4051-9DDD-593B6C8030A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C887994-6CDD-4B6F-81A0-78DE869E7EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C887994-6CDD-4B6F-81A0-78DE869E7EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C887994-6CDD-4B6F-81A0-78DE869E7EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C887994-6CDD-4B6F-81A0-78DE869E7EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FCE0660-4337-474D-A7C4-DB6A8077FD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FCE0660-4337-474D-A7C4-DB6A8077FD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FCE0660-4337-474D-A7C4-DB6A8077FD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FCE0660-4337-474D-A7C4-DB6A8077FD02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Logics;
+using GymBL;
 
 namespace revisedGymMembership
 {
     class Program
     {
-        static GymLogic gymLogic = new GymLogic();
+        static GymBAL gymLogic = new GymBAL();
 
         static void Main()
         {
@@ -21,12 +21,26 @@ namespace revisedGymMembership
                 Console.Write("\nChoose an option: ");
                 string choice = Console.ReadLine();
 
-                if (choice == "1") AddMember();
-                else if (choice == "2") RemoveMember();
-                else if (choice == "3") DisplayMembers();
-                else if (choice == "4") UpdatePaymentStatus();
-                else if (choice == "5") break;
-                else Console.WriteLine("Invalid input, try again.\n");
+                switch (choice)
+                {
+                    case "1":
+                        AddMember();
+                        break;
+                    case "2":
+                        RemoveMember();
+                        break;
+                    case "3":
+                        DisplayMembers();
+                        break;
+                    case "4":
+                        UpdatePaymentStatus();
+                        break;
+                    case "5":
+                        return;
+                    default:
+                        Console.WriteLine("Invalid input, try again.\n");
+                        break;
+                }
             }
         }
 
@@ -41,15 +55,7 @@ namespace revisedGymMembership
             Console.Write("Enter the month the member registered: ");
             string month = Console.ReadLine();
 
-            Member newMember = new Member
-            {
-                Name = name,
-                MembershipType = membershipType,
-                Month = month,
-                PaymentStatus = "Unpaid"
-            };
-
-            gymLogic.AddMember(newMember);
+            gymLogic.AddMember(name, membershipType, month);
             Console.WriteLine("Member added successfully!\n");
         }
 
@@ -64,27 +70,24 @@ namespace revisedGymMembership
                 return;
             }
 
-            gymLogic.RemoveMember(name);
-            Console.WriteLine("Member removed (if existed).\n");
+            bool success = gymLogic.RemoveMember(name);
+            Console.WriteLine(success ? "Member removed successfully.\n" : "Member not found.\n");
         }
 
         static void DisplayMembers()
         {
-            List<Member> members = gymLogic.GetMembers();
+            List<string> memberSummaries = gymLogic.GetMemberSummaries();
 
-            if (members.Count == 0)
+            if (memberSummaries.Count == 0)
             {
                 Console.WriteLine("\nNo members registered.\n");
                 return;
             }
 
             Console.WriteLine("\nList of Members:");
-            foreach (var member in members)
+            foreach (var summary in memberSummaries)
             {
-                Console.WriteLine("Name: " + member.Name +
-                                  ", Membership: " + member.MembershipType +
-                                  ", Month: " + member.Month +
-                                  ", Payment Status: " + member.PaymentStatus);
+                Console.WriteLine(summary);
             }
             Console.WriteLine();
         }
@@ -94,11 +97,23 @@ namespace revisedGymMembership
             Console.Write("Enter name of the member to update payment status: ");
             string name = Console.ReadLine();
 
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("Invalid input. Name cannot be empty.\n");
+                return;
+            }
+
             Console.Write("Enter new payment status (Paid/Unpaid): ");
             string status = Console.ReadLine();
 
-            gymLogic.UpdatePaymentStatus(name, status);
-            Console.WriteLine("Payment status updated (if member exists).\n");
+            if (string.IsNullOrWhiteSpace(status))
+            {
+                Console.WriteLine("Invalid input. Status cannot be empty.\n");
+                return;
+            }
+
+            bool updated = gymLogic.UpdatePaymentStatus(name, status);
+            Console.WriteLine(updated ? "Payment status updated.\n" : "Member not found or error occurred.\n");
         }
     }
 }

@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GymBL\GymBL.csproj" />
+    <ProjectReference Include="..\GymCommon\GymCommon.csproj" />
     <ProjectReference Include="..\Logics\DataLayerServices.csproj" />
   </ItemGroup>
 
