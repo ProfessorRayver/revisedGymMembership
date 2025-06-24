@@ -13,12 +13,12 @@ namespace GymBL
             gymLogic = new GymLogic();
         }
 
-        public void AddMember(string name, string membershipType, string month)
+        public void AddMember(string name, string membershipType, string registereMonth)
         {
             Member newMember = new Member();
             newMember.Name = name;
             newMember.MembershipType = membershipType;
-            newMember.Month = month;
+            newMember.registeredMonth = registereMonth;
             newMember.PaymentStatus = "Unpaid";
 
             gymLogic.AddMember(newMember);
@@ -56,7 +56,7 @@ namespace GymBL
             {
                 string summary = "Name: " + member.Name +
                                  ", Membership Type: " + member.MembershipType +
-                                 ", Month: " + member.Month +
+                                 ", Month: " + member.registeredMonth +
                                  ", Payment Status: " + member.PaymentStatus;
                 summaries.Add(summary);
             }

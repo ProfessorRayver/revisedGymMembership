@@ -19,7 +19,7 @@ namespace Logics
 
                 insertCommand.Parameters.AddWithValue("@Name", member.Name);
                 insertCommand.Parameters.AddWithValue("@MembershipType", member.MembershipType);
-                insertCommand.Parameters.AddWithValue("@Month", member.Month);
+                insertCommand.Parameters.AddWithValue("@Month", member.registeredMonth);
                 insertCommand.Parameters.AddWithValue("@PaymentStatus", member.PaymentStatus);
 
                 sqlConnection.Open();
@@ -43,7 +43,7 @@ namespace Logics
                         {
                             Name = reader["Name"].ToString(),
                             MembershipType = reader["MembershipType"].ToString(),
-                            Month = reader["Month"].ToString(),
+                            registeredMonth = reader["Month"].ToString(),
                             PaymentStatus = reader["PaymentStatus"].ToString()
                         });
                     }

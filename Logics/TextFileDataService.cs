@@ -31,7 +31,7 @@ namespace Logics
                     {
                         Name = parts[0],
                         MembershipType = parts[1],
-                        Month = parts[2],
+                        registeredMonth = parts[2],
                         PaymentStatus = parts[3]
                     });
                 }
@@ -43,7 +43,7 @@ namespace Logics
             var lines = new string[members.Count];
             for (int i = 0; i < members.Count; i++)
             {
-                lines[i] = $"{members[i].Name}|{members[i].MembershipType}|{members[i].Month}|{members[i].PaymentStatus}";
+                lines[i] = $"{members[i].Name}|{members[i].MembershipType}|{members[i].registeredMonth}|{members[i].PaymentStatus}";
             }
             File.WriteAllLines(filePath, lines);
         }

@@ -11,10 +11,10 @@ namespace Logics
 
         public GymLogic()
         {
-            dataService = new SqlGymDataService();
+            //dataService = new SqlGymDataService();
             //dataService = new TextFileDataService();
             //dataService = new JsonFileDataService();
-            //dataService = new InMemoryGymDataServices(); 
+            dataService = new InMemoryGymDataServices(); 
         }
 
         public void AddMember(Member member)
@@ -36,5 +36,6 @@ namespace Logics
         {
             dataService.UpdatePaymentStatus(name, status);
         }
+
     }
 }

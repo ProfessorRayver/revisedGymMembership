@@ -53,9 +53,9 @@ namespace revisedGymMembership
             string membershipType = Console.ReadLine();
 
             Console.Write("Enter the month the member registered: ");
-            string month = Console.ReadLine();
+            string registeredMonth = Console.ReadLine();
 
-            gymLogic.AddMember(name, membershipType, month);
+            gymLogic.AddMember(name, membershipType, registeredMonth);
             Console.WriteLine("Member added successfully!\n");
         }
 
