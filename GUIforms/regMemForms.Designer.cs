@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtGender = new TextBox();
+            txtStatus = new TextBox();
             txtName = new TextBox();
             btnCancel = new Button();
             btnSubmit = new Button();
@@ -38,12 +38,12 @@
             label1 = new Label();
             SuspendLayout();
             // 
-            // txtGender
+            // txtStatus
             // 
-            txtGender.Location = new Point(633, 128);
-            txtGender.Name = "txtGender";
-            txtGender.Size = new Size(213, 23);
-            txtGender.TabIndex = 24;
+            txtStatus.Location = new Point(633, 128);
+            txtStatus.Name = "txtStatus";
+            txtStatus.Size = new Size(213, 23);
+            txtStatus.TabIndex = 24;
             // 
             // txtName
             // 
@@ -95,9 +95,9 @@
             label2.Font = new Font("Arial Black", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(481, 128);
             label2.Name = "label2";
-            label2.Size = new Size(104, 30);
+            label2.Size = new Size(94, 30);
             label2.TabIndex = 18;
-            label2.Text = "Gender:";
+            label2.Text = "Status:";
             // 
             // label1
             // 
@@ -116,7 +116,7 @@
             BackgroundImage = Properties.Resources.registerFINAL;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(919, 542);
-            Controls.Add(txtGender);
+            Controls.Add(txtStatus);
             Controls.Add(txtName);
             Controls.Add(btnCancel);
             Controls.Add(btnSubmit);
@@ -126,13 +126,22 @@
             Controls.Add(label1);
             Name = "regMemForms";
             Text = "regMemForms";
+            Load += regMemForms_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
+        private void regMemForms_Load(object sender, EventArgs e)
+        {
+            // Add initialization logic here, if needed.
+            // For example:
+            txtName.Text = "Enter your name";
+            txtStatus.Text = "Active";
+        }
+
         #endregion
 
-        private TextBox txtGender;
+        private TextBox txtStatus;
         private TextBox txtName;
         private Button btnCancel;
         private Button btnSubmit;
