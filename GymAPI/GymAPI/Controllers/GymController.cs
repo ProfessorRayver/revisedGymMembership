@@ -25,7 +25,7 @@ namespace WebApplication2.Controllers
                 string.IsNullOrWhiteSpace(request.MembershipType) ||
                 string.IsNullOrWhiteSpace(request.registeredMonth))
             {
-                return BadRequest("Invalid member data.");
+                return BadRequest("Invalid, Fix the error");
             }
 
             gymBAL.AddMember(request.Name, request.MembershipType, request.registeredMonth);
@@ -42,20 +42,20 @@ namespace WebApplication2.Controllers
             if (removed)
                 return Ok(true);
             else
-                return NotFound("Member not found.");
+                return NotFound("Member is not existing.");
         }
 
         [HttpPatch("payment")]
         public IActionResult UpdatePaymentStatus([FromQuery] string name, [FromQuery] string newStatus)
         {
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(newStatus))
-                return BadRequest("Name and newStatus are required.");
+                return BadRequest("Info are required.");
 
             bool updated = gymBAL.UpdatePaymentStatus(name, newStatus);
             if (updated)
                 return Ok(true);
             else
-                return NotFound("Member not found.");
+                return NotFound("Member not existing");
         }
     }
 }

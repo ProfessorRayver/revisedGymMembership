@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Logics;       
-using GymCommon;    
+using GymCommon;
 
 namespace GymBL
 {
@@ -86,5 +86,12 @@ namespace GymBL
 
             return false;
         }
+
+        
+        public List<Member> GetMembers()
+        {
+            return gymLogic.GetMembers();
+        }
+
     }
 }

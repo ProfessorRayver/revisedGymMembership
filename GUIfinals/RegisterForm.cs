@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using GymBL; 
+using GymBL;
 
 namespace GUIfinals
 {
@@ -11,29 +11,34 @@ namespace GUIfinals
         public RegisterForm()
         {
             InitializeComponent();
+            btnSubmit.Click += btnSubmit_Click;
+            btnCancel.Click += btnCancel_Click_1;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text.Trim();
-            string status = txtStatus.Text.Trim();
-            string date = dateTimePicker1.Value.ToString("MMMM");
-
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(status))
+            try
             {
-                MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                string name = txtName.Text.Trim();
+                string status = txtStatus.Text.Trim();
+                string date = dateTimePicker1.Value.ToString("MMMM");
+
+                if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(status))
+                {
+                    MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                gymLogic.AddMember(name, status, date);
+
+                MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close(); // Close RegisterForm to return to home page (Form1)
             }
-
-            // Add to database via business logic (SQLDB)
-            gymLogic.AddMember(name, status, date);
-
-            // Show success notification to users 
-            MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            txtName.Clear();
-            txtStatus.Clear();
-            dateTimePicker1.Value = DateTime.Now;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -50,13 +55,11 @@ namespace GUIfinals
 
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
-            Form1 home = new Form1();
             this.Close();
         }
 
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
-            Form1 home = new Form1();
             this.Close();
         }
     }
