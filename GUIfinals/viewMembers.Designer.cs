@@ -31,14 +31,12 @@
             btnHome = new Button();
             btnDelete = new Button();
             btnUpdate = new Button();
-            textBox3 = new TextBox();
-            lblStatus = new Label();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
             idrow = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            Column6 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -61,52 +59,47 @@
             btnDelete.BackColor = Color.IndianRed;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(573, 290);
+            btnDelete.Location = new Point(503, 292);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(100, 54);
+            btnDelete.Size = new Size(170, 80);
             btnDelete.TabIndex = 46;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click_1;
             // 
             // btnUpdate
             // 
             btnUpdate.BackColor = Color.SpringGreen;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpdate.Location = new Point(573, 423);
+            btnUpdate.Location = new Point(503, 395);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(100, 54);
+            btnUpdate.Size = new Size(170, 80);
             btnUpdate.TabIndex = 47;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(573, 371);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 45;
-            // 
-            // lblStatus
-            // 
-            lblStatus.AutoSize = true;
-            lblStatus.BackColor = Color.Transparent;
-            lblStatus.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.ForeColor = Color.White;
-            lblStatus.Location = new Point(481, 371);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(86, 23);
-            lblStatus.TabIndex = 42;
-            lblStatus.Text = "STATUS:";
+            btnUpdate.Click += btnUpdate_Click_1;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idrow, Column2, Column5, Column4 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idrow, Column2, Column5, Column6 });
             dataGridView1.Location = new Point(9, 195);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(442, 382);
+            dataGridView1.Size = new Size(445, 382);
             dataGridView1.TabIndex = 39;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.Font = new Font("Elephant", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(503, 195);
+            button1.Name = "button1";
+            button1.Size = new Size(170, 67);
+            button1.TabIndex = 50;
+            button1.Text = "GUIDE";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // idrow
             // 
@@ -123,22 +116,10 @@
             Column5.HeaderText = "DATE:";
             Column5.Name = "Column5";
             // 
-            // Column4
+            // Column6
             // 
-            Column4.HeaderText = "Membership STAUTS:";
-            Column4.Name = "Column4";
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.Font = new Font("Elephant", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(503, 195);
-            button1.Name = "button1";
-            button1.Size = new Size(170, 67);
-            button1.TabIndex = 50;
-            button1.Text = "GUIDE";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            Column6.HeaderText = "PaymentStatus";
+            Column6.Name = "Column6";
             // 
             // viewMembers
             // 
@@ -151,14 +132,11 @@
             Controls.Add(btnHome);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
-            Controls.Add(textBox3);
-            Controls.Add(lblStatus);
             Controls.Add(dataGridView1);
             Name = "viewMembers";
             Text = "viewMembers";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -166,13 +144,11 @@
         private Button btnHome;
         private Button btnDelete;
         private Button btnUpdate;
-        private TextBox textBox3;
-        private Label lblStatus;
         private DataGridView dataGridView1;
+        private Button button1;
         private DataGridViewTextBoxColumn idrow;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column4;
-        private Button button1;
+        private DataGridViewTextBoxColumn Column6;
     }
 }

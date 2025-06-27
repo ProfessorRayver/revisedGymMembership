@@ -8,6 +8,7 @@ namespace GUIfinals
             InitializeComponent();
             button1.Click += btnRegister_Click;
             button2.Click += btnMembers_Click;
+            button3.Click += btnExit_Click;
         }
 
         private void btnMembers_Click(object sender, EventArgs e)
@@ -39,6 +40,10 @@ namespace GUIfinals
 
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
     }
 }

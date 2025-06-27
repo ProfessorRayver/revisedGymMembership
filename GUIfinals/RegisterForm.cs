@@ -33,7 +33,7 @@ namespace GUIfinals
 
                 MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.Close(); // Close RegisterForm to return to home page (Form1)
+                this.Close();
             }
             catch (Exception ex)
             {

@@ -29,48 +29,29 @@ namespace GUIfinals
                     id,
                     member.Name,
                     member.registeredMonth,
-                    member.MembershipType
+                    member.PaymentStatus
                 );
                 id++;
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                string nameToDelete = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
-
-                if (!string.IsNullOrEmpty(nameToDelete))
-                {
-                    var confirmResult = MessageBox.Show(
-                        $"Are you sure to delete member '{nameToDelete}'?",
-                        "Confirm Delete",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-
-                    if (confirmResult == DialogResult.Yes)
-                    {
-                        bool deleted = gymLogic.RemoveMember(nameToDelete);
-                        if (deleted)
-                        {
-                            MessageBox.Show("Member deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadMembersToGrid();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Member not found or could not be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            this.Hide();
+            this.Dispose();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Select one row before Deleting or Updating.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -104,20 +85,41 @@ namespace GUIfinals
             }
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            this.Dispose();
-        }
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string nameToDelete = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+                if (!string.IsNullOrEmpty(nameToDelete))
+                {
+                    var confirmResult = MessageBox.Show(
+                        $"Are you sure to delete member '{nameToDelete}'?",
+                        "Confirm Delete",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Select one row before Deleting or Updating.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        bool deleted = gymLogic.RemoveMember(nameToDelete);
+                        if (deleted)
+                        {
+                            MessageBox.Show("Member deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadMembersToGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Member not found or could not be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
+    
+
 }
