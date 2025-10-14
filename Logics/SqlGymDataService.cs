@@ -76,5 +76,24 @@ namespace Logics
                 updateCommand.ExecuteNonQuery();
             }
         }
+
+        public List<string> GetMemberNames()
+        {
+            var names = new List<string>();
+            using (var sqlConnection = new SqlConnection(connectionString))
+            {
+                var selectStatement = "SELECT Name FROM DbGym";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, sqlConnection);
+                sqlConnection.Open();
+                using (var reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        names.Add(reader["Name"].ToString());
+                    }
+                }
+            }
+            return names;
+        }
     }
 }

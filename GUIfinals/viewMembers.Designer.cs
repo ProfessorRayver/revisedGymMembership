@@ -32,11 +32,11 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
             idrow = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -89,18 +89,6 @@
             dataGridView1.Size = new Size(445, 382);
             dataGridView1.TabIndex = 39;
             // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.Font = new Font("Elephant", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(503, 195);
-            button1.Name = "button1";
-            button1.Size = new Size(170, 67);
-            button1.TabIndex = 50;
-            button1.Text = "GUIDE";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // idrow
             // 
             idrow.HeaderText = "ID:";
@@ -120,6 +108,18 @@
             // 
             Column6.HeaderText = "PaymentStatus";
             Column6.Name = "Column6";
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.Font = new Font("Elephant", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(503, 195);
+            button1.Name = "button1";
+            button1.Size = new Size(170, 67);
+            button1.TabIndex = 50;
+            button1.Text = "EMAIL";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // viewMembers
             // 

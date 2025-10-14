@@ -48,7 +48,21 @@ namespace GUIfinals
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Select one row before Deleting or Updating.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var gymLogic = new Logics.GymLogic();
+            var members = gymLogic.GetMembers();
+
+            foreach (var member in members)
+            {
+                if (!string.Equals(member.PaymentStatus, "Paid", StringComparison.OrdinalIgnoreCase))
+                {
+                    string toEmail = "Rayver@Example.com";
+                    string subject = "Gym Membership Payment Reminder";
+                    string body = $"Dear {member.Name},\n\nThis is a reminder to pay your gym membership for {member.registeredMonth}.\n\nThank you!";
+                    gymLogic.SendMailtrapEmail(toEmail, subject, body);
+                }
+            }
+
+            MessageBox.Show("Payment reminders sent to all the registered members", "Email Sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnUpdate_Click_1(object sender, EventArgs e)

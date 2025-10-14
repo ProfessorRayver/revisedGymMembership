@@ -86,5 +86,15 @@ namespace Logics
                 SaveToFile();
             }
         }
+
+        public List<string> GetMemberNames()
+        {
+            var names = new List<string>();
+            foreach (var member in GetMembers())
+            {
+                names.Add(member.Name);
+            }
+            return names;
+        }
     }
 }

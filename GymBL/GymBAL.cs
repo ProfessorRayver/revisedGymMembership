@@ -93,5 +93,15 @@ namespace GymBL
             return gymLogic.GetMembers();
         }
 
+        public List<string> GetMemberNames()
+        {
+            var members = gymLogic.GetMembers();
+            var names = new List<string>();
+            foreach (var member in members)
+            {
+                names.Add(member.Name);
+            }
+            return names;
+        }
     }
 }

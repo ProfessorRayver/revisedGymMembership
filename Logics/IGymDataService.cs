@@ -11,5 +11,6 @@ namespace Logics
         void AddMember(Member member);
         void RemoveMember(string name);
         void UpdatePaymentStatus(string name, string status);
+        List<string> GetMemberNames();
     }
 }
