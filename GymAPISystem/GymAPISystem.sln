@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymAPISystem", "GymAPISystem\GymAPISystem.csproj", "{C000A7CF-D567-419C-B286-848384D74A27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C000A7CF-D567-419C-B286-848384D74A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C000A7CF-D567-419C-B286-848384D74A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C000A7CF-D567-419C-B286-848384D74A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C000A7CF-D567-419C-B286-848384D74A27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FCFC9AA-9430-4373-BDC9-663B0A3A98B5}
+	EndGlobalSection
+EndGlobal

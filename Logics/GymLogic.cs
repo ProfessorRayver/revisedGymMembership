@@ -14,9 +14,9 @@ namespace Logics
 
         public GymLogic()
         {
-            //dataService = new SqlGymDataService();
+            dataService = new SqlGymDataService();
             //dataService = new TextFileDataService();
-            dataService = new JsonFileDataService();
+            //dataService = new JsonFileDataService();
             //dataService = new InMemoryGymDataServices(); 
         }
 

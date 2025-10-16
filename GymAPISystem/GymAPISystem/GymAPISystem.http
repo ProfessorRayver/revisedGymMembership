@@ -1,0 +1,6 @@
+@GymAPISystem_HostAddress = http://localhost:5258
+
+GET {{GymAPISystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
