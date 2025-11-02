@@ -57,7 +57,8 @@ namespace GUIfinals
                 {
                     string toEmail = "Rayver@Example.com";
                     string subject = "Gym Membership Payment Reminder";
-                    string body = $"Dear {member.Name},\n\nThis is a reminder to pay your gym membership for {member.registeredMonth}.\n\nThank you!";
+                    string body = $"Dear {member.Name},\n\nThis is a reminder to pay your gym membership for {member.registeredMonth}.\n\nThank you! \n" +
+                        $"please pay as soon as possible to avoid penalty fee.";
                     gymLogic.SendMailtrapEmail(toEmail, subject, body);
                 }
             }

@@ -18,7 +18,7 @@ namespace revisedGymMembership
                 Console.WriteLine("3. Display Members");
                 Console.WriteLine("4. Update Payment Status");
                 Console.WriteLine("5. Exit");
-                Console.WriteLine("6. Send Payment Reminders");
+                //Console.WriteLine("6. Send Payment Reminders");
                 Console.Write("\nChoose an option: ");
                 string choice = Console.ReadLine();
 
@@ -38,9 +38,9 @@ namespace revisedGymMembership
                         break;
                     case "5":
                         return;
-                    case "6":
-                        SendPaymentReminders();
-                        break;
+                    //case "6":
+                    //    SendPaymentReminders();
+                    //    break;
                     default:
                         Console.WriteLine("Invalid input, try again.\n");
                         break;
@@ -120,20 +120,26 @@ namespace revisedGymMembership
             Console.WriteLine(updated ? "Payment status updated.\n" : "Member not found or error occurred.\n");
         }
 
-            static void SendPaymentReminders()
-            {
-                var gymLogic = new GymBAL();
-                List<string> memberNames = gymLogic.GetMemberNames();
 
-                foreach (var name in memberNames)
-                {
-                    string toEmail = "yourmailtrap@email.com";
-                    string subject = "Gym Membership Payment Reminder";
-                    string body = $"Dear {name},\n\nThis is a reminder to pay your gym membership.\n\nThank you!";
-                    new Logics.GymLogic().SendMailtrapEmail(toEmail, subject, body);
-                }
 
-                Console.WriteLine("Payment reminders sent to all registered members.");
-            }
-        }
+        // NOTE: The FORMS is the one working for the configured appsettings.json
+
+
+
+        //static void SendPaymentReminders()
+        //{
+        //    var gymLogic = new GymBAL();
+        //    List<string> memberNames = gymLogic.GetMemberNames();
+
+        //    foreach (var name in memberNames)
+        //    {
+        //        string toEmail = "rayverConfigured@email.com";
+        //        string subject = "Gym Membership Payment Reminder";
+        //        string body = $"Dear {name},\n\nThis is a reminder to pay your gym membership.\n\nThank you!";
+        //        new Logics.GymLogic().SendMailtrapEmail(toEmail, subject, body);
+        //    }
+
+        //    Console.WriteLine("Payment reminders sent to all registered members.");
+        //}
     }
+}

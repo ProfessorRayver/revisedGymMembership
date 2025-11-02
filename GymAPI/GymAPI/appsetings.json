@@ -1,0 +1,18 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  {
+    "Smtp": {
+      "Host": "sandbox.smtp.mailtrap.io",
+      "Port": 2525,
+      "Username": "1aaf312c9fec5c",
+      "Password": "6b9908b82d0775",
+      "FromAddress": "Rayver@Reyes.com"
+    }
+  }
+}

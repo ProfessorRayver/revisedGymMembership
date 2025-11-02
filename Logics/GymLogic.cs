@@ -1,19 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using GymCommon;
+﻿using GymCommon;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace Logics
 {
     public class GymLogic
     {
         private IGymDataService dataService;
+        private IConfiguration _configuration; 
 
         public GymLogic()
         {
+            //configured credential insidw my appsettings.json
+                 _configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
             dataService = new SqlGymDataService();
             //dataService = new TextFileDataService();
             //dataService = new JsonFileDataService();
@@ -42,20 +47,26 @@ namespace Logics
 
         public void SendMailtrapEmail(string toEmail, string subject, string body)
         {
-            var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)
+            string host = _configuration["Smtp:Host"];
+            int port = int.Parse(_configuration["Smtp:Port"]);
+            string username = _configuration["Smtp:Username"];
+            string password = _configuration["Smtp:Password"];
+            string fromAddress = _configuration["Smtp:FromAddress"];
+
+            var client = new SmtpClient(host, port)
             {
-                Credentials = new NetworkCredential("1aaf312c9fec5c", "6b9908b82d0775"),
+                Credentials = new NetworkCredential(username, password),
                 EnableSsl = true
             };
 
-            var mail = new MailMessage("Rayver@Reyes.com", toEmail, subject, body);
+            var mail = new MailMessage(fromAddress, toEmail, subject, body);
             mail.BodyEncoding = Encoding.UTF8;
             mail.IsBodyHtml = false;
 
             try
             {
                 client.Send(mail);
-                Console.WriteLine("Successfully sent, check the inbox.");
+                Console.WriteLine("Successfull configured credential! check the inbox.");
             }
             catch (Exception ex)
             {
