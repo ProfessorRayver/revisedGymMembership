@@ -3,26 +3,31 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Logics
 {
     public class GymLogic
     {
-        private IGymDataService dataService;
-        private IConfiguration _configuration; 
+        public IGymDataService dataService;
+        public IConfiguration _configuration;
+        public emailSettings _smtpSettings;
 
         public GymLogic()
         {
-            //configured credential insidw my appsettings.json
-                 _configuration = new ConfigurationBuilder()
+            _configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
+          
+            _smtpSettings = new emailSettings(); 
+            _configuration.GetSection("Smtp").Bind(_smtpSettings);
+
             dataService = new SqlGymDataService();
             //dataService = new TextFileDataService();
             //dataService = new JsonFileDataService();
-            //dataService = new InMemoryGymDataServices(); 
+            //dataIAccess = new InMemoryGymDataServices(); 
         }
 
         public void AddMember(Member member)
@@ -47,11 +52,11 @@ namespace Logics
 
         public void SendMailtrapEmail(string toEmail, string subject, string body)
         {
-            string host = _configuration["Smtp:Host"];
-            int port = int.Parse(_configuration["Smtp:Port"]);
-            string username = _configuration["Smtp:Username"];
-            string password = _configuration["Smtp:Password"];
-            string fromAddress = _configuration["Smtp:FromAddress"];
+            string host = _smtpSettings.Host;
+            int port = _smtpSettings.Port;
+            string username = _smtpSettings.Username;
+            string password = _smtpSettings.Password;
+            string fromAddress = _smtpSettings.FromAddress;
 
             var client = new SmtpClient(host, port)
             {
@@ -66,11 +71,11 @@ namespace Logics
             try
             {
                 client.Send(mail);
-                Console.WriteLine("Successfull configured credential! check the inbox.");
+                Console.WriteLine("Successfully configured credential! Check the inbox.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error there is something wrong: " + ex.Message);
+                Console.WriteLine("Error, there is something wrong: " + ex.Message);
             }
         }
 
